@@ -7,10 +7,13 @@ export default function WeddingDetails() {
     <motion.section
       id="wedding-details"
       className="min-h-screen bg-white px-6 py-28 text-center"
-      initial={{opacity:0,y:80}}
-      whileInView={{opacity:1,y:0}}
-      transition={{duration:1.5}}
-      viewport={{once:false,amount:0.3}}
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5 }}
+      viewport={{
+        once: false,
+        amount: 0.3,
+      }}
     >
 
       <p className="text-xs tracking-[0.5em] uppercase text-yellow-700">
@@ -23,7 +26,7 @@ export default function WeddingDetails() {
       </h2>
 
 
-      <div className="mx-auto my-10 h-px w-40 bg-yellow-600"/>
+      <div className="mx-auto my-10 h-px w-40 bg-yellow-600" />
 
 
       <div className="mx-auto max-w-xl rounded-[2rem] border border-yellow-200 bg-gradient-to-b from-white to-amber-50 p-12 shadow-2xl">
@@ -47,6 +50,7 @@ export default function WeddingDetails() {
           </div>
 
 
+
           <div>
             <p className="text-xs uppercase tracking-widest text-gray-400">
               Ceremony
@@ -56,10 +60,8 @@ export default function WeddingDetails() {
               10:00 AM
             </p>
 
-            <p className="text-gray-500">
-              Temporary – to be updated
-            </p>
           </div>
+
 
 
           <div>
@@ -82,6 +84,7 @@ export default function WeddingDetails() {
 
 
         </div>
+
 
       </div>
 
