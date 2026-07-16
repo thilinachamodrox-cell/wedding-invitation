@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 
 
-export default function Hero() {
+export default function Hero({
+  startMusic,
+}: {
+  startMusic: () => void;
+}) {
 
   return (
 
@@ -50,25 +54,17 @@ export default function Hero() {
 
         <h1 className="text-5xl font-bold text-white md:text-7xl">
 
-
           Thilina 🐻
 
-
           <br />
-
 
           <span className="text-[#C9A227]">
-
             ❤️
-
           </span>
-
 
           <br />
 
-
           🐥 Rashmini
-
 
         </h1>
 
@@ -90,18 +86,28 @@ export default function Hero() {
 
 
 
-        <a
+        <button
 
-          href="#wedding-details"
+          onClick={() => {
+
+            startMusic();
+
+            document
+              .getElementById("wedding-details")
+              ?.scrollIntoView({
+                behavior:"smooth",
+              });
+
+          }}
 
           className="mt-12 inline-block rounded-full bg-[#C9A227] px-12 py-4 font-medium text-[#06152A] shadow-xl transition hover:scale-105 hover:bg-[#E7C873]"
 
         >
 
-          Open Invitation 💌
+          Open Invitation
 
 
-        </a>
+        </button>
 
 
 
