@@ -1,30 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #2b2b2b;
+  --background: #06152a;
+  --foreground: #ffffff;
+  --navy: #06152a;
+  --navy-light: #0b1f3a;
+  --gold: #c9a227;
+  --gold-light: #e7c873;
+  --silver: #d9d9d9;
 }
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-sans: var(--font-montserrat);
-  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-cormorant), Georgia, serif;
-}
 
 html {
   scroll-behavior: smooth;
+}
+
+
+body {
+  background: var(--navy);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+.gold-text {
+  color: var(--gold-light);
+}
+
+
+.gold-border {
+  border-color: var(--gold);
 }

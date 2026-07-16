@@ -6,182 +6,204 @@ import { motion } from "framer-motion";
 
 export default function Countdown() {
 
-  const weddingDate = new Date("2026-08-07T10:00:00");
 
+const weddingDate =
+new Date("2026-08-07T10:00:00");
 
-  const calculateTime = () => {
 
-    const difference = weddingDate.getTime() - Date.now();
 
+const calculateTime = () => {
 
-    if (difference <= 0) {
-      return {
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-      };
-    }
 
+const difference =
+weddingDate.getTime() - Date.now();
 
-    return {
-      days: Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      ),
 
-      hours: Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      ),
 
-      minutes: Math.floor(
-        (difference / (1000 * 60)) % 60
-      ),
+if(difference <= 0){
 
-      seconds: Math.floor(
-        (difference / 1000) % 60
-      ),
-    };
+return {
+days:0,
+hours:0,
+minutes:0,
+seconds:0,
+};
 
-  };
+}
 
 
-  const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
 
+return {
 
+days:Math.floor(
+difference/(1000*60*60*24)
+),
 
-  useEffect(() => {
 
-    setTime(calculateTime());
+hours:Math.floor(
+(difference/(1000*60*60))%24
+),
 
 
-    const timer = setInterval(() => {
+minutes:Math.floor(
+(difference/(1000*60))%60
+),
 
-      setTime(calculateTime());
 
-    }, 1000);
+seconds:Math.floor(
+(difference/1000)%60
+),
 
+};
 
-    return () => clearInterval(timer);
 
+};
 
-  }, []);
 
 
+const [time,setTime]=useState({
 
-  const items = [
+days:0,
+hours:0,
+minutes:0,
+seconds:0,
 
-    {
-      label: "Days",
-      value: time.days,
-    },
+});
 
-    {
-      label: "Hours",
-      value: time.hours,
-    },
 
-    {
-      label: "Minutes",
-      value: time.minutes,
-    },
 
-    {
-      label: "Seconds",
-      value: time.seconds,
-    },
 
-  ];
+useEffect(()=>{
 
 
+setTime(calculateTime());
 
-  return (
 
-    <motion.section
+const timer=setInterval(()=>{
 
-      className="min-h-screen bg-amber-50 px-6 py-28 text-center"
+setTime(calculateTime());
 
-      initial={{
-        opacity: 0,
-        y: 80,
-      }}
+},1000);
 
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
 
-      transition={{
-        duration: 1.5,
-      }}
 
-      viewport={{
-        once: false,
-        amount: 0.3,
-      }}
+return ()=>clearInterval(timer);
 
-    >
 
+},[]);
 
-      <p className="text-xs uppercase tracking-[0.5em] text-yellow-700">
-        Countdown
-      </p>
 
 
-      <h2 className="mt-6 text-5xl text-yellow-800">
-        Until We Say "I Do"
-      </h2>
 
+const items=[
 
-      <div className="mx-auto my-10 h-px w-40 bg-yellow-600" />
+["Days",time.days],
 
+["Hours",time.hours],
 
+["Minutes",time.minutes],
 
-      <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 md:grid-cols-4">
+["Seconds",time.seconds],
 
+];
 
-        {items.map((item) => (
 
-          <motion.div
 
-            key={item.label}
+return (
 
-            className="rounded-[2rem] border border-yellow-200 bg-white p-10 shadow-xl"
+<motion.section
 
-            whileHover={{
-              y: -8,
-            }}
+className="min-h-screen bg-[#0B1F3A] px-6 py-28 text-center"
 
-          >
 
+initial={{
+opacity:0,
+y:80
+}}
 
-            <p className="text-5xl font-semibold text-yellow-800">
 
-              {String(item.value).padStart(2, "0")}
+whileInView={{
+opacity:1,
+y:0
+}}
 
-            </p>
 
+transition={{
+duration:1.2
+}}
 
-            <p className="mt-4 text-xs uppercase tracking-[0.3em] text-gray-400">
 
-              {item.label}
+viewport={{
+once:false,
+amount:0.3
+}}
 
-            </p>
+>
 
 
-          </motion.div>
+<p className="text-xs uppercase tracking-[0.5em] text-[#E7C873]">
+Countdown
+</p>
 
-        ))}
 
 
-      </div>
+<h2 className="mt-6 text-5xl text-white">
+Until We Say "I Do"
+</h2>
 
 
-    </motion.section>
 
-  );
+<div className="mx-auto my-10 h-px w-40 bg-[#C9A227]" />
+
+
+
+<div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 md:grid-cols-4">
+
+
+{items.map(([label,value])=>(
+
+
+<motion.div
+
+key={label}
+
+whileHover={{
+y:-10
+}}
+
+className="rounded-[2rem] border border-[#C9A227]/40 bg-[#06152A] p-10 shadow-xl"
+
+
+>
+
+
+<p className="text-5xl font-semibold text-[#E7C873]">
+
+{String(value).padStart(2,"0")}
+
+</p>
+
+
+<p className="mt-4 text-xs uppercase tracking-widest text-gray-300">
+
+{label}
+
+</p>
+
+
+</motion.div>
+
+
+))}
+
+
+
+</div>
+
+
+</motion.section>
+
+);
+
+
 }

@@ -5,70 +5,97 @@ import { motion } from "framer-motion";
 
 export default function Venue(){
 
-  return (
+return(
 
-    <motion.section
-      className="min-h-screen bg-white px-6 py-28 text-center"
-      initial={{opacity:0,y:80}}
-      whileInView={{opacity:1,y:0}}
-      transition={{duration:1.5}}
-      viewport={{
-        once:false,
-        amount:0.3
-      }}
-    >
+<motion.section
+
+id="venue"
+
+className="min-h-screen bg-[#06152A] px-6 py-28 text-center"
 
 
-      <p className="text-xs uppercase tracking-[0.5em] text-yellow-700">
-        Venue
-      </p>
+initial={{
+opacity:0,
+y:80
+}}
 
 
-      <h2 className="mt-6 text-5xl text-yellow-800">
-        Where To Find Us
-      </h2>
+whileInView={{
+opacity:1,
+y:0
+}}
 
 
-      <div className="mx-auto my-10 h-px w-40 bg-yellow-600"/>
+transition={{
+duration:1.2
+}}
+
+
+viewport={{
+once:false,
+amount:0.3
+}}
+
+>
+
+
+<p className="text-xs uppercase tracking-[0.5em] text-[#E7C873]">
+Venue
+</p>
 
 
 
-      <div className="mx-auto max-w-lg rounded-[2rem] border border-yellow-200 bg-gradient-to-b from-white to-amber-50 p-12 shadow-2xl">
+<h2 className="mt-6 text-5xl text-white">
+Where We Celebrate
+</h2>
 
 
-        <div className="text-5xl">
-          📍
-        </div>
+
+<div className="mx-auto my-10 h-px w-40 bg-[#C9A227]" />
 
 
-        <h3 className="mt-8 text-4xl text-yellow-800">
-          View
-        </h3>
+
+<div className="mx-auto max-w-xl rounded-[2rem] border border-[#C9A227]/40 bg-[#0B1F3A] p-12 shadow-2xl">
 
 
-        <p className="mt-4 text-2xl text-gray-700">
-          Water&apos;s Edge
-        </p>
+<h3 className="text-4xl text-[#E7C873]">
+View Hall
+</h3>
 
 
-        <p className="mt-2 text-gray-500">
-          Battaramulla, Sri Lanka
-        </p>
+<p className="mt-5 text-2xl text-white">
+Water&apos;s Edge
+</p>
 
 
-        <a
-          href="https://maps.app.goo.gl/gKLU9ttCCRMEf8nt6"
-          target="_blank"
-          className="mt-10 inline-block rounded-full bg-yellow-700 px-10 py-4 text-white shadow-lg transition hover:scale-105 hover:bg-yellow-800"
-        >
-          Open Location 📍
-        </a>
+<p className="text-gray-300">
+Battaramulla, Sri Lanka
+</p>
 
 
-      </div>
+
+<a
+
+href="https://maps.google.com"
+
+target="_blank"
+
+className="mt-10 inline-block rounded-full bg-[#C9A227] px-10 py-4 text-[#06152A]"
+
+>
+
+View Location
+
+</a>
 
 
-    </motion.section>
+</div>
 
-  );
+
+</motion.section>
+
+
+);
+
+
 }
