@@ -16,10 +16,10 @@ export default function Countdown() {
 
     if (difference <= 0) {
       return {
-        days:0,
-        hours:0,
-        minutes:0,
-        seconds:0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
       };
     }
 
@@ -41,42 +41,60 @@ export default function Countdown() {
         (difference / 1000) % 60
       ),
     };
+
   };
 
 
-  const [time,setTime] = useState(calculateTime());
+  const [time, setTime] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
 
-  useEffect(()=>{
 
-    const timer=setInterval(()=>{
+  useEffect(() => {
+
+    setTime(calculateTime());
+
+
+    const timer = setInterval(() => {
+
       setTime(calculateTime());
-    },1000);
+
+    }, 1000);
 
 
-    return ()=>clearInterval(timer);
-
-  },[]);
+    return () => clearInterval(timer);
 
 
+  }, []);
 
-  const items=[
+
+
+  const items = [
+
     {
-      label:"Days",
-      value:time.days
+      label: "Days",
+      value: time.days,
     },
+
     {
-      label:"Hours",
-      value:time.hours
+      label: "Hours",
+      value: time.hours,
     },
+
     {
-      label:"Minutes",
-      value:time.minutes
+      label: "Minutes",
+      value: time.minutes,
     },
+
     {
-      label:"Seconds",
-      value:time.seconds
+      label: "Seconds",
+      value: time.seconds,
     },
+
   ];
 
 
@@ -84,14 +102,28 @@ export default function Countdown() {
   return (
 
     <motion.section
+
       className="min-h-screen bg-amber-50 px-6 py-28 text-center"
-      initial={{opacity:0,y:80}}
-      whileInView={{opacity:1,y:0}}
-      transition={{duration:1.5}}
-      viewport={{
-        once:false,
-        amount:0.3
+
+      initial={{
+        opacity: 0,
+        y: 80,
       }}
+
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+
+      transition={{
+        duration: 1.5,
+      }}
+
+      viewport={{
+        once: false,
+        amount: 0.3,
+      }}
+
     >
 
 
@@ -105,30 +137,39 @@ export default function Countdown() {
       </h2>
 
 
-      <div className="mx-auto my-10 h-px w-40 bg-yellow-600"/>
+      <div className="mx-auto my-10 h-px w-40 bg-yellow-600" />
 
 
 
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 md:grid-cols-4">
 
 
-        {items.map((item)=>(
+        {items.map((item) => (
 
           <motion.div
+
             key={item.label}
+
             className="rounded-[2rem] border border-yellow-200 bg-white p-10 shadow-xl"
+
             whileHover={{
-              y:-8
+              y: -8,
             }}
+
           >
 
+
             <p className="text-5xl font-semibold text-yellow-800">
-              {String(item.value).padStart(2,"0")}
+
+              {String(item.value).padStart(2, "0")}
+
             </p>
 
 
             <p className="mt-4 text-xs uppercase tracking-[0.3em] text-gray-400">
+
               {item.label}
+
             </p>
 
 
