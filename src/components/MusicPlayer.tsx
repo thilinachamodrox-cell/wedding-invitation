@@ -100,7 +100,7 @@ const MusicPlayer = forwardRef<MusicPlayerHandle>((_, ref) => {
 
         ref={audioRef}
 
-        src="/music/wedding-song1.mp3"
+        src="/music/wedding-song.mp3"
 
         loop
 
