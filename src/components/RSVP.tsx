@@ -122,7 +122,7 @@ Kindly confirm your attendance before
 
 <p className="mt-3 text-3xl text-[#E7C873]">
 
-25 July 2026
+27th July 2026
 
 </p>
 
